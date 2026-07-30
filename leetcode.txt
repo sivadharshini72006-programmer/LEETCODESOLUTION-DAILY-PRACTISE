@@ -1,0 +1,52 @@
+calculate number of pushes:
+class Solution {
+    public int minimumPushes(String word) {
+        int[] freq=new int[26];
+        for(char ch:word.toCharArray()){
+            freq[ch-'a']++;
+
+        }
+        Arrays.sort(freq);
+
+        int pushes=0;
+        int press=1;
+        int count=0;
+
+        for(int i=25;i>=0;i--){
+            if(freq[i]==0) break;
+        
+            pushes+=freq[i]*press;
+            count++;
+            if(count==8){
+                press++;
+                count=0;
+            }
+        }
+        return pushes;
+    }
+}
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        int n=nums.length;
+        int closest = nums[0]+nums[1]+nums[2];
+        for(int i=0;i<n-2;i++){
+            for(int j=i+1;j<n-1;j++){
+                for(int k=j+1;k<n;k++){
+                    int sum=nums[i]+nums[j]+nums[k];
+                    if(Math.abs(sum-target)<Math.abs(closest-target)){
+                        closest=sum;
+                    }
+                }
+            }
+        }
+        return closest;
+    }
+}
+
+
+                        
+                        
+                        
+3sumclosest:
+
+
